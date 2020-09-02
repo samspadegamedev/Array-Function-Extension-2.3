@@ -6,7 +6,6 @@
     {"id":{"name":"show_debug_message_utility_script_file","path":"scripts/show_debug_message_utility_script_file/show_debug_message_utility_script_file.yy",},"order":0,},
     {"id":{"name":"obj_array_function_tester","path":"objects/obj_array_function_tester/obj_array_function_tester.yy",},"order":1,},
     {"id":{"name":"rm_test","path":"rooms/rm_test/rm_test.yy",},"order":0,},
-    {"id":{"name":"Array Functions README","path":"notes/Array Functions README/Array Functions README.yy",},"order":0,},
   ],
   "Options": [
     {"name":"iOS","path":"options/ios/options_ios.yy",},
