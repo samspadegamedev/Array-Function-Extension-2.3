@@ -1,7 +1,7 @@
 {
   "parent": {
-    "name": "Array Functions",
-    "path": "folders/Array Functions.yy",
+    "name": "ASSET Array Function Extensions",
+    "path": "ASSET Array Function Extensions.yyp",
   },
   "resourceVersion": "1.1",
   "name": "Array Functions README",

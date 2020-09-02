@@ -21,9 +21,7 @@
     "children": [],
   },
   "RoomOrder": [],
-  "Folders": [
-    {"folderPath":"folders/Array Functions.yy","order":0,"resourceVersion":"1.0","name":"Array Functions","tags":[],"resourceType":"GMFolder",},
-  ],
+  "Folders": [],
   "AudioGroups": [
     {"targets":461609314234257646,"resourceVersion":"1.0","name":"audiogroup_default","resourceType":"GMAudioGroup",},
   ],
