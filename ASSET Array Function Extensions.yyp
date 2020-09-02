@@ -1,11 +1,6 @@
 {
   "resources": [
-    {"id":{"name":"GMAssert","path":"extensions/GMAssert/GMAssert.yy",},"order":0,},
-    {"id":{"name":"__GMA_BREAKPOINT__","path":"scripts/__GMA_BREAKPOINT__/__GMA_BREAKPOINT__.yy",},"order":1,},
     {"id":{"name":"array_function_extension","path":"scripts/array_function_extension/array_function_extension.yy",},"order":1,},
-    {"id":{"name":"show_debug_message_utility_script_file","path":"scripts/show_debug_message_utility_script_file/show_debug_message_utility_script_file.yy",},"order":0,},
-    {"id":{"name":"obj_array_function_tester","path":"objects/obj_array_function_tester/obj_array_function_tester.yy",},"order":1,},
-    {"id":{"name":"rm_test","path":"rooms/rm_test/rm_test.yy",},"order":0,},
     {"id":{"name":"Array Functions README","path":"notes/Array Functions README/Array Functions README.yy",},"order":0,},
   ],
   "Options": [
@@ -25,14 +20,9 @@
     "name": "Default",
     "children": [],
   },
-  "RoomOrder": [
-    {"name":"rm_test","path":"rooms/rm_test/rm_test.yy",},
-  ],
+  "RoomOrder": [],
   "Folders": [
-    {"folderPath":"folders/Demo and Test/Debug Utility.yy","order":3,"resourceVersion":"1.0","name":"Debug Utility","tags":[],"resourceType":"GMFolder",},
-    {"folderPath":"folders/Demo and Test.yy","order":1,"resourceVersion":"1.0","name":"Demo and Test","tags":[],"resourceType":"GMFolder",},
     {"folderPath":"folders/Array Functions.yy","order":0,"resourceVersion":"1.0","name":"Array Functions","tags":[],"resourceType":"GMFolder",},
-    {"folderPath":"folders/Demo and Test/GMAssert.yy","order":2,"resourceVersion":"1.0","name":"GMAssert","tags":[],"resourceType":"GMFolder",},
   ],
   "AudioGroups": [
     {"targets":461609314234257646,"resourceVersion":"1.0","name":"audiogroup_default","resourceType":"GMAudioGroup",},
