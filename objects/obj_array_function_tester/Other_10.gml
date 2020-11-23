@@ -23,36 +23,36 @@ assert_fail(array_valid_index(array, 1), "Valid Index");
 assert_fail(array_valid_index(array, "Hello World"), "Valid Index");
 #endregion
 
-#region ///array_swap_positions test
+#region ///array_swap_indexes test
 array = [0, 1];
-array_swap_positions(array, 0, 1);
+array_swap_indexes(array, 0, 1);
 assert(array_equals([1, 0], array), "Arrays arn't equal");
 
 array = [0, [], 1];
-array_swap_positions(array, 2, 1);
+array_swap_indexes(array, 2, 1);
 assert(array_equals([0, 1, []], array), "Arrays arn't equal");
 #endregion
 
-#region ///array_copy_shallow test
+#region ///array_copy_simple test
 array = [0, 1, "Hello World"];
-shallow_copy = array_copy_shallow(array);
+shallow_copy = array_copy_simple(array);
 assert(array_equals(shallow_copy, array), "Arrays arn't equal");
 assert(array_equals(shallow_copy, [0, 1, "Hello World"]), "Arrays arn't equal");
 
 array = [];
-shallow_copy = array_copy_shallow(array);
+shallow_copy = array_copy_simple(array);
 assert(array_equals(shallow_copy, array), "Arrays arn't equal");
 assert(array_equals([], array), "Arrays arn't equal");
 
 array = [[1, 2], [3, 4]];
-shallow_copy = array_copy_shallow(array);
+shallow_copy = array_copy_simple(array);
 assert(array_equals([[1, 2], [3, 4]], array), "Arrays are equal");
 assert(array_equals([[1, 2], [3, 4]], array), "Arrays are equal");
 #endregion
 
 #region ///array_copy_deep test
 array = [0, 1, 2, [0, 1, 2, 3, 4, 5], 3, [], [[0, 1, 2]], 4, 5];
-deep_copy = array_copy_deep(array);
+deep_copy = array_copy_simple(array);
 assert(array_equals(deep_copy, array), "Arrays arn't equal");
 assert(array_equals(deep_copy, array), "Arrays arn't equal");
 #endregion
@@ -60,32 +60,30 @@ assert(array_equals(deep_copy, array), "Arrays arn't equal");
 #region ///array_add test
 array = [0, 1];
 assert(array_equals([0, 1], array), "Arrays arn't equal");
-array_add_to_end(array);
+array_push(array);
 assert(array_equals([0, 1], array), "Arrays arn't equal");
-array_add_to_end(array, "Hello World");
+array_push(array, "Hello World");
 assert(array_equals([0, 1, "Hello World"], array), "Arrays arn't equal");
-array_add_to_end(array, 2, 3, 4, "Goodbye");
+array_push(array, 2, 3, 4, "Goodbye");
 assert(array_equals([0, 1, "Hello World", 2, 3, 4, "Goodbye"], array), "Arrays arn't equal");
 #endregion
 
 #region ///array_delete test
 array = [0, 1, "Hello World"];
 assert(array_equals([0, 1, "Hello World"], array), "Arrays arn't equal");
-array = array_delete(array, 0, 2);
+array_delete(array, 0, 2);
 assert(array_equals(["Hello World"], array), "Arrays arn't equal");
 
 array = [0, 1, 2, 3, 4, 5];
 assert(array_equals([0, 1, 2, 3, 4, 5], array), "Arrays arn't equal");
-array = array_delete(array, 5, 5);
+array_delete(array, 5, 5);
 assert(array_equals([0, 1, 2, 3, 4], array), "Arrays arn't equal");
 
 array = [1, 2, 3, 4, 5];
 assert(array_equals([1, 2, 3, 4, 5], array), "Arrays arn't equal");
-array = array_delete(array, 1.5, 1);
-assert(array_equals([1, 2, 4, 5], array), "Arrays arn't equal");
 
 array = [];
-array = array_delete(array, 0, 0);
+array_delete(array, 0, 0);
 assert(array_equals([], array), "Arrays arn't equal");
 
 #endregion
@@ -94,8 +92,6 @@ assert(array_equals([], array), "Arrays arn't equal");
 array = [0, 1, "Hello World"];
 assert(array_equals([0, 1, "Hello World"], array), "Arrays arn't equal");
 array_insert(array, 0, 2);
-assert(array_equals([2, 0, 1, "Hello World"], array), "Arrays arn't equal");
-array_insert(array, 10, 2);
 assert(array_equals([2, 0, 1, "Hello World"], array), "Arrays arn't equal");
 array_insert(array, 4, "Goodbye", "Hello", 1, 2, 4);
 assert(array_equals([2, 0, 1, "Hello World", "Goodbye", "Hello", 1, 2, 4], array), "Arrays arn't equal");
@@ -107,21 +103,6 @@ array_insert(array, 5, "Hello World", "Goodbye");
 assert(array_equals([0, 1, 2, 3, 4, "Hello World", "Goodbye", 5], array), "Arrays arn't equal");
 #endregion
 
-#region ///array_splice test
-array = [0, 1, "Hello World"];
-assert(array_equals([0, 1, "Hello World"], array), "Arrays arn't equal");
-array = array_splice(array, 2, 1, 2, 3, 4, 5);
-assert(array_equals([0, 1, 2, 3, 4, 5], array), "Arrays arn't equal");
-
-array = [0, 1];
-array = array_splice(array, 2, 1, 2, 3, 4, 5);
-assert(array_equals([0, 1, 2, 3, 4, 5], array), "Arrays arn't equal");
-
-array = [0, 1, 2, 3, 4, 5];
-assert(array_equals([0, 1, 2, 3, 4, 5], array), "Arrays arn't equal");
-array = array_splice(array, 0, 6, "Hello World");
-assert(array_equals(["Hello World"], array), "Arrays arn't equal");
-#endregion
 
 #region ///array_find_index test
 array = [0, 1, "Hello World", 2, 3, 4, 5];
@@ -269,12 +250,14 @@ assert(array_equals([0, 1, 2, 0, 1, 2, 3, 4, 5, 3, 4, 5], array_flatten(array)),
 
 #region //array_sort test
 array = [0, 4, 5, 1, 4, 5, -4];
-assert(array_equals([-4, 0, 1, 4, 4, 5, 5], array_sort(array, function(_value_1, _value_2) {
+array_sort(array, function(_value_1, _value_2) {
     return _value_1 > _value_2;
-})), "Arrays arn't equal"); 
-assert(array_equals([5, 5, 4, 4, 1, 0, -4], array_sort(array, function(_value_1, _value_2) {
+});
+assert(array_equals([-4, 0, 1, 4, 4, 5, 5], array), "Arrays arn't equal"); 
+array_sort(array, function(_value_1, _value_2) {
     return _value_1 < _value_2;
-})), "Arrays arn't equal"); 
+});
+assert(array_equals([5, 5, 4, 4, 1, 0, -4], array), "Arrays arn't equal"); 
 
 #endregion
 

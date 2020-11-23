@@ -24,24 +24,24 @@ print("Initial array: ", array);
 print("Index of 0: ", array_valid_index(array, 0));
 #endregion
 
-#region ///array_swap_positions test
+#region ///array_swap_indexes test
 print_start("Array Swap TEST 1");
 array = [0, 1];
 print("Initial array: ", array);
-array_swap_positions(array, 0, 1);
+array_swap_indexes(array, 0, 1);
 print("After Swaping: ", array);
 
 print_start("Array Swap TEST 2");
 array = [0, [], 1];
 print("Initial array: ", array);
-array_swap_positions(array, 2, 1);
+array_swap_indexes(array, 2, 1);
 print("After Swaping: ", array);
 #endregion
 
 #region ///array_copy_shallow test
 print_start("Array Copy Shallow");
 array = [0, 1, "Hello World"];
-shallow_copy = array_copy_shallow(array);
+shallow_copy = array_copy_simple(array);
 print("Initial array: ", array);
 print("Copied Array: ", shallow_copy);
 #endregion
@@ -50,11 +50,11 @@ print("Copied Array: ", shallow_copy);
 print_start("Array Add");
 array = [0, 1];
 print("Initial array: ", array);
-array_add_to_end(array);
+array_push(array);
 print("After Adding: ", array);
-array_add_to_end(array, "Hello World");
+array_push(array, "Hello World");
 print("After Adding: ", array);
-array_add_to_end(array, 2, 3, 4, "Goodbye");
+array_push(array, 2, 3, 4, "Goodbye");
 print("After Adding: ", array);
 #endregion
 
@@ -62,19 +62,19 @@ print("After Adding: ", array);
 print_start("Array Delete TEST 1");
 array = [0, 1, "Hello World"];
 print("Initial array: ", array);
-array = array_delete(array, 0, 2);
+array_delete(array, 0, 2);
 print("After Deleting: ", array);
 
 print_start("Array Delete TEST 2");
 array = [0, 1, 2, 3, 4, 5];
 print("Initial array: ", array);
-array = array_delete(array, 5, 5);
+array_delete(array, 5, 5);
 print("After Deleting: ", array);
 
 print_start("Array Delete TEST 3");
 array = [1, 2, 3, 4, 5];
 print("Initial array: ", array);
-array = array_delete(array, 1.5, 1);
+array_delete(array, 1.5, 1);
 print("After Deleting: ", array);
 #endregion
 
@@ -92,19 +92,6 @@ array = array_insert(array, 5, "Hello World");
 print("After Inserting: ", array);
 #endregion
 
-#region ///array_splice test
-print_start("Array Splice TEST 1");
-array = [0, 1, "Hello World"];
-print("Initial array: ", array);
-array = array_splice(array, 2, 1, 2, 3, 4, 5);
-print("After Splicing: ", array);
-
-print_start("Array Splice TEST 2");
-array = [0, 1, 2, 3, 4, 5];
-print("Initial array: ", array);
-array = array_splice(array, 0, 6, "Hello World");
-print("After Splicing: ", array);
-#endregion
 
 #region ///array_find_index test
 print_start("Array Find Value TEST 1");
@@ -165,7 +152,7 @@ print("Final Array Is: ", array_flatten(array));
 print_start("Array Copy Deep");
 array = [0, 1, 2, [0, 1, 2, 3, 4, 5], 3, [], [[0, 1, 2]], 4, 5];
 print("Initial array: ", array);
-deep_copy = array_copy_deep(array);
+deep_copy = array_copy_simple(array);
 print("Final Array Is: ", deep_copy);
 #endregion
 
