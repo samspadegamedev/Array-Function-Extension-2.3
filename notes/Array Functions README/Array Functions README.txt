@@ -2,10 +2,13 @@
 
 2.3 and 2.3.1 introduced a variety of new array functions making some of the functions
 in this asset obsolute. So in any case where a new array function has been officially
-added, the corresponding function in this asset as been removed. I've also removed 
-the array to list functions and list to arrays. These existed primarily because you
-might want to save an array in json format, which is also no longer necessary in 2.3.1
-as you can save arrays straight to json.
+added, the corresponding function in this asset as been removed. In most cases these
+functions work identically; however, the built in array delete and array sort work
+directly on the array and do not return an array, this may need to be take into account.
+
+I've also removed the array to list functions and list to arrays. These existed primarily 
+because you might want to save an array in json format, which is also no longer necessary 
+in 2.3.1 as you can save arrays straight to json.
 
 Additionally, many of the functions take advantage of the ability to pass in callback scripts that is no 
 available in 2.3. If you are not familiar with how to use callback scripts, look up how to 
